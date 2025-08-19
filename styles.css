@@ -1,52 +1,45 @@
-/* ========== Global sizing reset ========== */
-*, *::before, *::after { box-sizing: border-box; }
+/* === Simple reset (predictable sizing) === */
+* { box-sizing: border-box; }
 
-/* ========== Page base ========== */
+/* === Page base === */
 body {
   margin: 0;
-  background: #fffbe6;                          /* light yellow background */
-  padding-inline: clamp(16px, 4vw, 32px);       /* side gutters so text never hits the edges */
+  background: #fffbe6;                  /* light yellow */
+  padding: 24px;                         /* side gutters */
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   line-height: 1.6;
   color: #222;
 }
 
-/* ========== Center the main content column ========== */
+/* === Centered content column === */
 main {
-  max-width: 800px;            /* readable line length */
-  margin: 2rem auto;           /* auto left/right centers it */
-  padding: 0;                  /* gutters come from body, so no extra side padding here */
+  max-width: 800px;                      /* readable line length */
+  margin: 32px auto;                     /* centers the column */
 }
 
-/* ========== Typography spacing ========== */
-h1, h2, h3 { line-height: 1.2; margin: 0 0 .5rem; }
-p, ul, ol { margin: 0 0 1rem; }
+/* === Type & spacing === */
+h1, h2, h3 { text-align: center; line-height: 1.2; margin: 0 0 8px; }
+p, ul, ol { margin: 0 0 16px; }
+p { text-align: left; }                  /* keep paragraphs left-aligned */
 
-/* Images: center and scale nicely */
-img { display: block; margin: 0 auto 1rem; max-width: 100%; height: auto; }
-figure { margin: 0 0 1rem; }
+/* === Images === */
+img { display: block; max-width: 100%; height: auto; margin: 0 auto 16px; }
 
-/* ========== Simple two-column helper (for Ingredients/Instructions) ========== */
-.columns { display: flex; gap: 1rem; }
-.columns > * { flex: 1; }
-@media (max-width: 700px) {
-  .columns { flex-direction: column; }          /* stack on small screens */
-}
-
-/* ========== Nav list styling (if you use <nav><ul>… in index.html) ========== */
-nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: .75rem; padding: 0; margin: .5rem 0 0; }
+/* === Nav (if you use <nav><ul>…</ul></nav>) === */
+nav ul { list-style: none; padding: 0; margin: 8px 0 0; display: flex; gap: 12px; justify-content: center; }
 nav a { text-decoration: none; }
 nav a:hover { text-decoration: underline; }
 
-/* Optional: highlight a section when you jump to an anchor like #ingredients */
-/* :target { outline: 2px solid #999; outline-offset: .25rem; } */
+/* === Optional: two columns for Ingredients/Instructions === */
+.columns { display: flex; gap: 16px; }
+.columns > * { flex: 1; }
+@media (max-width: 700px) { .columns { display: block; } }
 
-/* ========== Center everything EXCEPT paragraphs ========== */
-body { text-align: center; }            /* center headings, list text, links, etc. */
-p { text-align: left; }                 /* keep paragraphs left-aligned for readability */
-
-/* Lists: center bullets/numbers with the text and remove left padding */
+/* === Center list text/bullets === */
 ul, ol { list-style-position: inside; padding-left: 0; margin-left: 0; }
 
-/* Center the nav row */
-nav ul { justify-content: center; }
+/* Small spacing below the jump links */
+.section-nav { margin: 0 0 12px; }
+
+/* Highlight the section when you jump to it */
+:target { outline: 2px solid #999; outline-offset: .25rem; }
